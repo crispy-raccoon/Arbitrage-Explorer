@@ -1,0 +1,15 @@
+The parameter values used to generate the plots in this folder are:
+
+Trinomial Tree Visualisation tab:
+- Initial Stock Price (S0) = 100
+- Up Factor (U) = 1.1
+- Middle Factor (M) = 1
+- Down Factor (D) = 0.9
+- Number of Steps / Year to Maturity (N) = 2
+- Strick Price (K) = 100
+- Bond Price (R) = 0.8	(this is the arbitrage case as R < D)
+
+
+Build Your Portfolio tab:
+- Number of Stock / Stock Weight (W_S) = 1
+- Number of Bond / Bond Weight  (W_B) = -100
