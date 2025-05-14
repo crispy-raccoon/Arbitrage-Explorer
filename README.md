@@ -1,58 +1,45 @@
 Project name:
-Analysis of North Korea's Trash Balloon Landings
+Arbitrage Explorer
 
 
 Project description:
-Analyse the dataset of 167 recorded North Korea's balloon landings in South Korea between May and November 2024. The goal is to produce a data-driven infographic on this event, following the style guidelines of The Dallas Morning news.
+Create an interactive dashboard using R Shiny, build and display trinomial trees for stock prices, call, and put option value based on the parameter values inputted by the user. The user is challenged to tune the parameters such that arbitrage exists, and contruct a portfolio to exploit it.
 
 
-Data source:
-The dataset used in this analysis was obtained from the Beyond Parallel Project by the Center for Strategic and International Studies (CSIS). It is publicly available to be downloaded as a csv file on their website, and was accessed via the "Get the data" button at:
-https://beyondparallel.csis.org/map-of-north-koreas-garbage-filled-balloons/
+Running the application:
+Open "Code" in RStudio, press Ctrl + A to select all the code, followed by Ctrl + Enter to execute it.
+
+
+Data source and processing:
+Data is obtained through users' input and simulation. Processing is not required.
 
 
 Desciption of each variable:
-1. wave_number – which wave the balloon was launched
-2. location – location formatted in town, city, province
-3. lat – latitude coordinate where the balloon landed
-4. long – longitude coordinate where the balloon landed
-5. province – the administrative division in South Korea where the balloon was recorded
-6. korean_name – Korean name of the landing location
-7. date – the recorded date when the balloon landed
-8. time – the recorded time of day when the balloon landed
-9. source – the source of the data for the balloon landing
-10. distance_to_seoul – the calculated distance in km from the landing location to Seoul
-11. wave_group – categorical variable that takes value "Waves 1-3" or "Later waves" depending on the wave number
-
-
-Data processing:
-Although there are missing values in the "time" column, the column is not used in the analysis and no action is performed to address the missing values. Columns are converted to snake_case for consistency.
+- Initial stock price S_0: The price of stock at time t=0
+- Movement factors U,M,D of stock S: The multiplicative constants applied to stock price from one time period to the next one
+- Time to maturity N: The number of years before an European option expires
+- Strike price: The price to be compared with stock price at maturity to decide whether an option is exercised
+- Movement factor R of bond B: THe multiplicative constant applied to bond price from one time period to the next one
+- Weight W_S: Number of stocks held at t=0 in the constructed portfolio
+- Weight W_B: Number of bonds held at t=0 in the constructed portfolio
 
 
 Packages used:
-1. geosphere – Haversine distance calculations
-2. ggplot2 – data visualization
-3. leaflet – interactive map
-4. dplyr – data manipulation
-5. rnaturalearth – to obtain the base map of South Korea
+- shiny: To build interactive application
+- data.tree: To manipulate tree structures used to present price processes
+- DiagrammeR: Supports tree generation
 
 
-Analysis performed:
-1. Displayed all landing locations on a map
-2. Calculated the distance from Seoul, visualised on a map
-3. Investigated the trend of targeting Seoul over time
-4. Identified which provinces are the most badly affected
-
-
-Final output:
-An infographic pdf created using Canva, based on the visualisations created using Rstudio. If you encounter any difficulties in reproducing the results, please refer to the Support section below.
+Output and analysis performed:
+- Plotted trinomial trees for stock prices and analysed the trend in option prices based on the position of node in the tree
+- Plotted an empirical CDF for the simulated portfolio values at maturity, explaining how the vertical line V = 0 can be helpful in finding the probability of losing money
+- Displayed the truth values for arbitrage conditions using a table, explaining why arbitrage exists / does not exist
 
 
 Reference:
-1. Data source: https://beyondparallel.csis.org/map-of-north-koreas-garbage-filled-balloons/
-2. Haversine distance formulation: https://en.wikipedia.org/wiki/Haversine_formula
-3. Style guidelines: https://policyviz.com/wp-content/uploads/2021/03/tdmn_graphics.pdf?srsltid=AfmBOor_O2WCwoPSBuB8SY0iTO82d4mOaGWBR-lNDwczbzo3rj1gGZHq
-4. CMYK to HEX colour code converter: https://colordesigner.io/convert/cmyktohex
+- Shiny guidelines: https://shiny.posit.co/r/getstarted/shiny-basics/lesson1/
+- data.tree package: https://cran.r-project.org/web/packages/data.tree/vignettes/data.tree.html
+- Typeset Math expressions: https://shiny.posit.co/r/reference/shiny/0.11/withmathjax.html
 
 Author:
 CID: 06011902
